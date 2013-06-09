@@ -22,7 +22,7 @@
 						value="#{converteVideoBean.arquivoEntrada}" required="true"
 						requiredMessage="O arquivo de entrada é obrigatório" size="100" />
 					<p:commandButton value="URL"
-						action="#{converteVideoBean.obterArquivoEntrada}"
+						actionListener="#{converteVideoBean.obterArquivoEntrada}" process="@all"
 						update="messages,painelSaida"></p:commandButton>
 				</p:panel>
 				<p:panel id="painelSaida" header="Resultado" visible="#{converteVideoBean.mostraArquivo}">

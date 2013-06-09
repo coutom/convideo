@@ -31,9 +31,7 @@ public class ConverteVideoBean implements Serializable{
 	
 	private String arquivoSaida = "http://www.youtube.com/v/KZnUr8lcqjo";
 	
-	public ConverteVideoBean() {
-		System.out.println("init");
-	}
+	
 	
 	/**
 	 * Obter aquivo de entrada de acordo com URL informada.
@@ -41,7 +39,7 @@ public class ConverteVideoBean implements Serializable{
 	 */
 	public void obterArquivoEntrada(){
 		ConverterAction ca = new ConverterAction();
-		mostraArquivo = ca.obterArquivoEntrada();				
+		mostraArquivo = ca.obterArquivoEntrada(arquivoEntrada);				
 	}
 
 	public String getArquivoSaida() {
