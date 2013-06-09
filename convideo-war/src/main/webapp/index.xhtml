@@ -3,16 +3,36 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Converção formato video</title>
+	<title>Video</title>
 </h:head>
-<h:body>
-	<h3>Teste SambaTech</h3>
+<h:body bgcolor="white">
 	<h:form>
-		<h:inputText value="#{converteVideoBean.name}"></h:inputText>
-		<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="center" size="260" style="font-size: 11px;"
+				resizable="true">
+
+				<p:panel header="Conversão de video">					
+					<p:messages id="messages" />
+					<p>Arquivo entrada</p>
+					<p:inputText id="arquivoEntrada" label="Arquivo de entrada:"
+						value="#{converteVideoBean.arquivoEntrada}" required="true"
+						requiredMessage="O arquivo de entrada é obrigatório" size="100" />
+					<p:commandButton value="URL"
+						action="#{converteVideoBean.obterArquivoEntrada}"
+						update="messages,painelSaida"></p:commandButton>
+				</p:panel>
+				<p:panel id="painelSaida" header="Resultado" visible="#{converteVideoBean.mostraArquivo}">
+					<p>Arquivo saida</p>
+					<p:media value="#{converteVideoBean.arquivoSaida}" width="420"
+						height="315" player="flash" />
+				</p:panel>
+
+			</p:layoutUnit>
+		</p:layout>
 	</h:form>
 </h:body>
 </html>
